@@ -5,15 +5,24 @@ import {
   Direction,
   CommandType,
   isPlaceCommandDetails,
+  Position,
   Turn,
 } from "./types";
 
 export class Robot {
   private commands: Command[] = [];
-  public direction = Direction.North;
-  public position = { x: 0, y: 0 };
+  private direction = Direction.North;
+  private position: Position = { x: 0, y: 0 };
 
-  constructor(public board = new Board(5, 5)) {}
+  constructor(private board = new Board(5, 5)) {}
+
+  get getDirection(): Direction {
+    return this.direction;
+  }
+
+  get getPosition(): Position {
+    return this.position;
+  }
 
   private canExecuteCmd(cmd: Command): boolean {
     if (this.commands.length === 0 && cmd.command !== CommandType.Place) {

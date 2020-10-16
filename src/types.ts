@@ -18,7 +18,7 @@ export enum CommandType {
   Report = "Report",
 }
 
-interface Position {
+export interface Position {
   x: number;
   y: number;
 }
