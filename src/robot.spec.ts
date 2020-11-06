@@ -18,6 +18,9 @@ describe("Toy Robot Simulator", () => {
     it(`shouldn't execute "Place 6,6,North" because it's out of limits`, () => {
       expect(myRobot.runCmd("Place 10,20,North")).toBeFalsy();
     });
+    it(`shouldn't execute "Place 1,6,North" because it's out of limits`, () => {
+      expect(myRobot.runCmd("Place 1,6,North")).toBeFalsy();
+    });
 
     it(`shouldn't run any command before the first "place" command`, () => {
       expect(myRobot.runCmd("Left")).toBeFalsy();

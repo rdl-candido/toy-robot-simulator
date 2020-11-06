@@ -68,5 +68,18 @@ describe("Util", () => {
         Util.parseCommand("Place 6 2 West");
       }).toThrow(`Invalid place command`);
     });
+    it("should thrown an error if command is invalid", () => {
+      expect(() => Util.parseCommand("test")).toThrowError(
+        new Error("Invalid command")
+      );
+    });
+  });
+
+  describe("getPosition", () => {
+    it("should thrown an error if position doesn't exist", () => {
+      expect(() => Util.getPosition("anything")).toThrow(
+        new Error("Invalid position")
+      );
+    });
   });
 });
